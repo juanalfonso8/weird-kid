@@ -201,6 +201,22 @@ document.addEventListener('DOMContentLoaded', () => {
     onScroll();
   }
 
+  /* ── Hero sticky notes: tilt toward the pointer ── */
+  document.querySelectorAll('.hero-note').forEach(note => {
+    note.addEventListener('pointermove', (e) => {
+      if (e.pointerType === 'touch') return;
+      const r = note.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      note.style.setProperty('--ry', (x * 14).toFixed(1) + 'deg');
+      note.style.setProperty('--rx', (-y * 14).toFixed(1) + 'deg');
+    });
+    note.addEventListener('pointerleave', () => {
+      note.style.setProperty('--rx', '0deg');
+      note.style.setProperty('--ry', '0deg');
+    });
+  });
+
   /* ── Doodle random delay variance ── */
   document.querySelectorAll('.doodle').forEach((el, i) => {
     el.style.animationDelay = `${(i * 0.4) % 3}s`;
