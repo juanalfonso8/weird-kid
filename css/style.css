@@ -284,6 +284,19 @@ a { color: inherit; }
   justify-content: center;
 }
 
+/* Blurred doodle wallpaper behind the hero headline */
+.hero-doodle-bg {
+  position: absolute;
+  inset: -30px;
+  z-index: 0;
+  pointer-events: none;
+  background: url('../images/doodle-bg.svg') center / 560px 560px repeat;
+  filter: blur(2px);
+  opacity: 0.55;
+  animation: doodle-drift 90s linear infinite;
+}
+@keyframes doodle-drift { to { background-position: 560px 560px; } }
+
 /* ===== MARQUEE ===== */
 .marquee-section {
   background: var(--black);

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- PLACEHOLDER graffiti monster. Replace this file with your own art (same file name). -->
+  <path d="M96 78 L108 38 L128 70 L150 28 L172 70 L192 38 L204 78" fill="#FF3D00"/>
+  <path d="M60 170 C52 100 100 70 150 70 C200 70 248 100 240 170 C236 232 196 262 150 262 C104 262 64 232 60 170 Z" fill="#76FF03"/>
+  <circle cx="150" cy="146" r="46" fill="#fff"/><circle cx="160" cy="150" r="20" fill="#111"/><circle cx="168" cy="142" r="6" fill="#fff" stroke="none"/>
+  <path d="M96 204 Q150 250 204 204 Z" fill="#111"/>
+  <path d="M112 206 l8 14 l8 -14 M136 212 l8 14 l8 -14 M160 212 l8 14 l8 -14" fill="#fff" stroke-width="6"/>
+  <path d="M60 190 Q28 200 32 232" fill="none"/><path d="M240 190 Q272 200 268 232" fill="none"/>
+  <path d="M96 262 v18 M204 262 v18" fill="none"/>
+  <path d="M78 120 q-6 14 0 26" fill="none" stroke="#00E5FF" stroke-width="5"/>
+</svg>

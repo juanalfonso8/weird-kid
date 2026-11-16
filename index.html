@@ -69,7 +69,7 @@
 
     /* Scene wrapper */
     .intro-scene {
-      --s: clamp(220px, min(62vh, 86vw), 470px);
+      --s: clamp(220px, min(62vh, 44vw), 470px);
       position: relative;
       z-index: 2;
       display: flex;
@@ -179,69 +179,38 @@
       50%      { transform: translateY(-5px); }
     }
 
-    /* ===== STICKY NOTES (visitor picks where to start) ===== */
-    #sticky-note {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
+    /* ===== INTRO STAGE: locker in the middle, a sticky note on each side ===== */
+    .intro-stage {
+      position: relative;
+      z-index: 2;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 1.8rem;
-      padding: 1.5rem;
-      overflow-y: auto;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      gap: clamp(1rem, 4vw, 3.5rem);
     }
-    #sticky-note.visible { opacity: 1; }
-
-    .sticky-prompt {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 0.72rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      opacity: 0;
-      transition: opacity 0.5s ease 0.6s;
-    }
-    #sticky-note.visible .sticky-prompt { opacity: 1; }
-
-    .sticky-row {
-      display: flex;
-      gap: 2.4rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    #intro-overlay.opening .intro-hint { visibility: hidden; }
 
     .sticky-inner {
-      --r: -4deg;
+      --r: -5deg;
       display: block;
       box-sizing: border-box;
-      width: min(300px, 80vw);
-      padding: 2.2rem 2.2rem 2.5rem;
+      width: clamp(150px, 17vw, 215px);
+      padding: 1.2rem 1.1rem 1.3rem;
       background: #FFD600;
       color: #111;
       text-decoration: none;
       text-align: center;
       position: relative;
       cursor: pointer;
-      pointer-events: none;
       transform: rotate(var(--r));
       box-shadow:
         4px 4px 0px rgba(0,0,0,0.25),
         8px 8px 20px rgba(0,0,0,0.4);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: stickyIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1s backwards;
     }
-    .sticky-b { --r: 3deg; background: #00E5FF; }
-    #sticky-note.visible .sticky-inner {
-      pointer-events: auto;
-      animation: stickyPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
-    }
-    #sticky-note.visible .sticky-b { animation-delay: 0.2s; }
-    @keyframes stickyPop {
+    .sticky-b { --r: 4deg; background: #00E5FF; animation-delay: 1.25s; }
+    @keyframes stickyIn {
       from { transform: rotate(var(--r)) scale(0); }
       to   { transform: rotate(var(--r)) scale(1); }
     }
@@ -252,16 +221,15 @@
       outline: none;
     }
     .sticky-inner:focus-visible { outline: 3px solid #fff; outline-offset: 6px; }
-
     /* tape at top */
     .sticky-inner::before {
       content: '';
       position: absolute;
-      top: -14px;
+      top: -13px;
       left: 50%;
       transform: translateX(-50%);
-      width: 70px;
-      height: 26px;
+      width: 64px;
+      height: 24px;
       background: rgba(255, 252, 200, 0.75);
       border: 1px solid rgba(200,175,80,0.4);
       box-shadow: 0 1px 4px rgba(0,0,0,0.2);
@@ -273,47 +241,46 @@
       bottom: 0; right: 0;
       width: 0; height: 0;
       border-style: solid;
-      border-width: 0 0 28px 28px;
+      border-width: 0 0 24px 24px;
       border-color: transparent transparent rgba(0,0,0,0.18) transparent;
     }
-
+    /* swap images/monster-left.svg and monster-right.svg for your own artwork */
+    .sticky-monster {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
     .sticky-label {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
+      font-size: 0.58rem;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: rgba(0,0,0,0.5);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.35rem;
     }
     .sticky-headline {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 800;
-      font-size: 2rem;
+      font-size: clamp(1.05rem, 1.8vw, 1.4rem);
       text-transform: uppercase;
       letter-spacing: -0.02em;
       color: #111;
       line-height: 1;
-      margin-bottom: 0.6rem;
     }
-    .sticky-sub {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.55);
-    }
-    @media (max-width: 640px) {
-      .sticky-row { gap: 1.8rem; }
-      .sticky-inner { padding: 1.6rem 1.6rem 1.8rem; }
-      .sticky-headline { font-size: 1.6rem; }
+    @media (max-width: 720px) {
+      .intro-scene { --s: clamp(200px, min(44vh, 78vw), 360px); }
+      .intro-stage { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem 1rem; justify-items: center; }
+      .intro-stage .intro-scene { grid-column: 1 / -1; grid-row: 1; }
+      .sticky-inner { width: min(150px, 40vw); padding: 0.9rem 0.8rem 1rem; }
     }
 
     /* Intro only shows with JS, and only once per session */
     .js:not(.skip-intro) #intro-overlay { display: flex; }
     html.js:not(.skip-intro), .js:not(.skip-intro) body { overflow: hidden; }
-    .skip-intro #sticky-note { display: none; }
     .intro-skip {
       position: absolute;
       top: 1.2rem;
@@ -353,8 +320,15 @@
     <!-- Brand label -->
     <div class="intro-brand-label">Weird Kid &nbsp;—&nbsp; International Streetwear</div>
 
-    <!-- Locker Scene -->
-    <div class="intro-scene">
+    <div class="intro-stage">
+      <a class="sticky-inner sticky-a" href="collections.html?filter=new">
+        <img class="sticky-monster" src="images/monster-left.svg" alt="" width="200" height="200" />
+        <div class="sticky-label">✦ Just Dropped ✦</div>
+        <div class="sticky-headline">New<br>Collection</div>
+      </a>
+
+      <!-- Locker Scene -->
+      <div class="intro-scene">
 
       <!-- Locker: body/inside SVG + hinged door -->
       <div class="locker-container" id="lockerContainer" role="button" tabindex="0" aria-label="Open the locker">
@@ -491,6 +465,13 @@
 
     </div><!-- /intro-scene -->
 
+      <a class="sticky-inner sticky-b" href="collections.html?filter=basics">
+        <img class="sticky-monster" src="images/monster-right.svg" alt="" width="200" height="200" />
+        <div class="sticky-label">✦ Everyday ✦</div>
+        <div class="sticky-headline">Basic<br>Apparel</div>
+      </a>
+    </div><!-- /intro-stage -->
+
     <button type="button" class="intro-skip" id="introSkip">Skip intro</button>
 
     <!-- Hint -->
@@ -501,77 +482,53 @@
 
   </div><!-- /intro-overlay -->
 
-  <!-- ===== STICKY NOTES (pop out after the locker opens; visitor chooses) ===== -->
-  <div id="sticky-note" role="group" aria-label="Choose where to start">
-    <p class="sticky-prompt">Pick your pile</p>
-    <div class="sticky-row">
-      <a class="sticky-inner sticky-a" href="collections.html?filter=new">
-        <div class="sticky-label">✦ Just Dropped ✦</div>
-        <div class="sticky-headline">New<br>Collection</div>
-        <div class="sticky-sub">Click to explore →</div>
-      </a>
-      <a class="sticky-inner sticky-b" href="collections.html?filter=basics">
-        <div class="sticky-label">✦ Everyday ✦</div>
-        <div class="sticky-headline">Basic<br>Apparel</div>
-        <div class="sticky-sub">Tees &amp; crewnecks →</div>
-      </a>
-    </div>
-  </div>
-
   <!-- ============================================================
        INTRO INTERACTION SCRIPT
   ============================================================ -->
   <script>
     (function () {
-      var root       = document.documentElement;
-      var overlay    = document.getElementById('intro-overlay');
-      var wrap       = document.getElementById('lockerContainer');
-      var door       = document.getElementById('door-3d');
-      var stickyNote = document.getElementById('sticky-note');
-      var skipBtn    = document.getElementById('introSkip');
-      var hintText   = document.querySelector('.intro-hint span:last-child');
-      var clicked    = false;
-      var timers     = [];
+      var root    = document.documentElement;
+      var overlay = document.getElementById('intro-overlay');
+      var wrap    = document.getElementById('lockerContainer');
+      var door    = document.getElementById('door-3d');
+      var skipBtn = document.getElementById('introSkip');
+      var clicked = false;
+      var timers  = [];
 
       function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
       function markSeen() { try { sessionStorage.setItem('wk-intro', '1'); } catch (e) {} }
 
+      // Reveal the front page and replay its entrance animation
+      function enterSite() {
+        root.classList.add('skip-intro');
+        window.scrollTo(0, 0);
+        Array.prototype.forEach.call(document.querySelectorAll('.hero .fade-in'), function (el) {
+          el.style.animation = 'none';
+          void el.offsetWidth;
+          el.style.animation = '';
+        });
+      }
+
+      // Opening the locker takes you to the front page
       function openLocker() {
         if (clicked) return;
         clicked = true;
         markSeen();
-
-        // 1. Swing the door open
-        door.classList.add('open');
-
-        // 2. Once it's open, two sticky notes pop out. They stay until the visitor picks one.
-        later(function () {
-          stickyNote.classList.add('visible');
-          if (hintText) hintText.textContent = 'Pick one to start shopping';
-          var first = stickyNote.querySelector('.sticky-inner');
-          if (first) first.focus({ preventScroll: true });
-        }, 1050);
+        overlay.classList.add('opening');
+        door.classList.add('open');                 // door swings open (1.1s)
+        later(function () {                         // beat to see inside, then fade out
+          overlay.classList.add('fading');
+          later(enterSite, 700);
+        }, 1700);
       }
 
-      // Picking a note fades the intro out, then goes to the collections page
-      Array.prototype.forEach.call(stickyNote.querySelectorAll('.sticky-inner'), function (note) {
-        note.addEventListener('click', function (e) {
-          e.preventDefault();
-          var href = note.getAttribute('href');
-          overlay.classList.add('fading');
-          stickyNote.style.opacity = '0';
-          setTimeout(function () { window.location.href = href; }, 450);
-        });
-      });
-
-      // Skip: stay on the homepage
+      // Skip: straight to the front page
       function skip() {
         timers.forEach(clearTimeout);
         clicked = true;
         markSeen();
-        stickyNote.classList.remove('visible');
         overlay.classList.add('fading');
-        setTimeout(function () { root.classList.add('skip-intro'); }, 700);
+        setTimeout(enterSite, 700);
       }
 
       wrap.addEventListener('click', openLocker);
@@ -579,6 +536,17 @@
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLocker(); }
       });
       skipBtn.addEventListener('click', skip);
+
+      // The two sticky notes are shortcuts into the shop
+      Array.prototype.forEach.call(document.querySelectorAll('.sticky-inner'), function (note) {
+        note.addEventListener('click', function (e) {
+          e.preventDefault();
+          markSeen();
+          var href = note.getAttribute('href');
+          overlay.classList.add('fading');
+          setTimeout(function () { window.location.href = href; }, 450);
+        });
+      });
     })();
   </script>
 
@@ -609,6 +577,9 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero">
+
+    <!-- Soft doodle wallpaper behind the headline -->
+    <div class="hero-doodle-bg" aria-hidden="true"></div>
 
     <!-- Doodle decorations -->
     <div class="doodle d-float" style="top:12%; left:6%;">
