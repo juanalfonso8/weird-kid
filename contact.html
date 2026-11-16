@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js');</script>
+  <title>Contact — WEIRD KID</title>
+  <meta name="description" content="Get in touch with Weird Kid — press, wholesale, collaborations, or just say hi." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="WEIRD KID" />
+  <meta property="og:title" content="Contact — WEIRD KID" />
+  <meta property="og:description" content="Get in touch with Weird Kid — press, wholesale, collaborations, or just say hi." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A8%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">WEIRD KID</a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar-right">
+      <a class="nav-bag" href="collections.html" title="Shop" aria-label="Shop">🛍️</a>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="collections.html">Collections</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero" style="background:#fafafa; border-bottom:2px solid #eee;">
+
+    <div class="doodle d-float" style="top:15%; right:8%;">
+      <svg width="70" height="70" viewBox="0 0 70 70"><polygon points="35,2 42,26 68,26 47,42 55,66 35,52 15,66 23,42 2,26 28,26" fill="#76FF03"/></svg>
+    </div>
+    <div class="doodle d-wiggle" style="bottom:10%; left:5%;">
+      <svg width="55" height="55" viewBox="0 0 55 55"><circle cx="27.5" cy="27.5" r="24" fill="none" stroke="#FF6D00" stroke-width="4"/></svg>
+    </div>
+    <div class="doodle d-float-r" style="top:40%; left:3%;">
+      <svg width="45" height="25" viewBox="0 0 45 25" fill="none"><path d="M2,12.5 Q9,2 16,12.5 Q23,23 30,12.5 Q37,2 44,12.5" stroke="#E040FB" stroke-width="4" stroke-linecap="round"/></svg>
+    </div>
+
+    <div style="max-width:1300px; margin:0 auto; position:relative; z-index:2;">
+      <p class="section-label fade-in fade-in-1">Get in touch</p>
+      <h1 class="fade-in fade-in-2">
+        Say<br>
+        <span style="-webkit-text-stroke:3px #111; color:transparent;">Hello.</span>
+      </h1>
+      <p class="page-hero-sub fade-in fade-in-3">Press, wholesale, collabs, or just vibing — we're all ears.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT CONTENT ===== -->
+  <div class="section">
+    <div class="contact-grid">
+
+      <!-- Form -->
+      <div class="reveal">
+        <p class="section-label" style="margin-bottom:1.5rem;">Send a message</p>
+        <form class="contact-form-wrap">
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" autocomplete="given-name" placeholder="Alex" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" autocomplete="family-name" placeholder="Kim" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="">Select a topic...</option>
+              <option value="general">General Inquiry</option>
+              <option value="wholesale">Wholesale / Stockist</option>
+              <option value="collab">Collaboration / Press</option>
+              <option value="order">Order Support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn" style="width:100%; text-align:center;">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="reveal" style="padding-top:3.5rem;">
+        <h3 class="contact-info" style="font-size:1.6rem; text-transform:uppercase; letter-spacing:-0.02em; margin-bottom:1rem;">We're a<br><span class="text-red">weird</span> bunch.<br>But we respond.</h3>
+        <p style="color:#555; font-size:0.9rem; line-height:1.8; margin-bottom:2.5rem;">
+          Whether you're a retailer, a creator, a journalist, or just a fan — 
+          we want to hear from you. We typically respond within 48 hours.
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p>hello@weirdkid.co</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">🌍</div>
+          <div>
+            <h4>Headquarters</h4>
+            <p>International — we're everywhere.</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <h4>Response Time</h4>
+            <p>Within 48 hours, usually faster.</p>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div style="margin:2.5rem 0; border-top:2px solid #eee;"></div>
+
+        <!-- Social Links -->
+        <p style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1.2rem;">Follow the Chaos</p>
+        <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+          <a href="#" style="display:flex; align-items:center; gap:0.5rem; padding:0.6rem 1.2rem; border:2px solid #eee; text-decoration:none; color:#111; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; transition:all 0.2s;" onmouseover="this.style.borderColor='#111'" onmouseout="this.style.borderColor='#eee'">📸 Instagram</a>
+          <a href="#" style="display:flex; align-items:center; gap:0.5rem; padding:0.6rem 1.2rem; border:2px solid #eee; text-decoration:none; color:#111; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; transition:all 0.2s;" onmouseover="this.style.borderColor='#111'" onmouseout="this.style.borderColor='#eee'">🎵 TikTok</a>
+          <a href="#" style="display:flex; align-items:center; gap:0.5rem; padding:0.6rem 1.2rem; border:2px solid #eee; text-decoration:none; color:#111; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; transition:all 0.2s;" onmouseover="this.style.borderColor='#111'" onmouseout="this.style.borderColor='#eee'">🐦 Twitter/X</a>
+        </div>
+      </div>
+
+    </div><!-- /contact-grid -->
+  </div><!-- /section -->
+
+  <!-- ===== FAQ STRIP ===== -->
+  <div class="section" id="faq" style="border-top:2px solid #eee; padding-top:5rem;">
+    <div class="reveal">
+      <p class="section-label">Common questions</p>
+      <h2 class="section-title">Quick Answers</h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem;" class="reveal">
+
+      <div style="padding:1.8rem; border:2px solid #eee; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#FFD600;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.6rem;">Do you ship internationally?</div>
+        <p style="font-size:0.85rem; color:#666; line-height:1.6;">Yes! We ship worldwide. Free shipping on orders over $100. Delivery times vary by region.</p>
+      </div>
+
+      <div style="padding:1.8rem; border:2px solid #eee; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#FF3D00;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.6rem;">What's your return policy?</div>
+        <p style="font-size:0.85rem; color:#666; line-height:1.6;">30-day returns on unworn items with original tags. We want you to love what you wear.</p>
+      </div>
+
+      <div style="padding:1.8rem; border:2px solid #eee; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#E040FB;"></div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.6rem;">How do I know my size?</div>
+        <p style="font-size:0.85rem; color:#666; line-height:1.6;">Check our sizing guide — most pieces run true to size. When in doubt, size up for that oversized streetwear look.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">WEIRD KID</div>
+          <p class="footer-desc">International streetwear for the ones who never fit in. Born weird. Stay weird.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+            <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+            <a href="#" class="social-btn" aria-label="Twitter/X">🐦</a>
+            <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="collections.html">All Pieces</a></li>
+            <li><a href="collections.html?filter=tops">Tops</a></li>
+            <li><a href="collections.html?filter=bottoms">Bottoms</a></li>
+            <li><a href="collections.html?filter=accessories">Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Brand</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html">Values</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="contact.html#faq">Sizing Guide</a></li>
+            <li><a href="contact.html#faq">Shipping & Returns</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Weird Kid. All rights reserved.</span>
+        <span>Made with 🎨 for the different ones.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

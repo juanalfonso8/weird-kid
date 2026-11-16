@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js');</script>
+  <title>Collections — WEIRD KID</title>
+  <meta name="description" content="Shop Weird Kid collections — hoodies, tees, pants, accessories and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="WEIRD KID" />
+  <meta property="og:title" content="Collections — WEIRD KID" />
+  <meta property="og:description" content="Shop Weird Kid collections — hoodies, tees, pants, accessories and more." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A8%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">WEIRD KID</a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar-right">
+      <a class="nav-bag" href="collections.html" title="Shop" aria-label="Shop">🛍️</a>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="collections.html">Collections</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero" style="background:#fafafa; border-bottom: 2px solid #eee;">
+
+    <!-- Doodles -->
+    <div class="doodle d-spin" style="top:20%; right:8%;">
+      <svg width="80" height="80" viewBox="0 0 80 80"><polygon points="40,2 48,30 78,30 55,48 63,76 40,60 17,76 25,48 2,30 32,30" fill="#FFD600"/></svg>
+    </div>
+    <div class="doodle d-float" style="bottom:10%; left:6%;">
+      <svg width="55" height="55" viewBox="0 0 55 55"><circle cx="27.5" cy="27.5" r="24" fill="none" stroke="#E040FB" stroke-width="4"/></svg>
+    </div>
+    <div class="doodle d-wiggle" style="top:30%; left:3%;">
+      <svg width="40" height="40" viewBox="0 0 40 40"><line x1="0" y1="0" x2="40" y2="40" stroke="#FF3D00" stroke-width="5" stroke-linecap="round"/><line x1="40" y1="0" x2="0" y2="40" stroke="#FF3D00" stroke-width="5" stroke-linecap="round"/></svg>
+    </div>
+
+    <div style="max-width:1300px; margin:0 auto; position:relative; z-index:2;">
+      <p class="section-label fade-in fade-in-1">What we make</p>
+      <h1 class="fade-in fade-in-2">
+        Our<br><span style="-webkit-text-stroke:3px #111; color:transparent;">Collections</span>
+      </h1>
+      <p class="page-hero-sub fade-in fade-in-3">6 pieces. Zero compromises. All weird.</p>
+    </div>
+  </section>
+
+  <!-- ===== COLLECTIONS ===== -->
+  <div class="section">
+    
+    <!-- Filter Bar -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All Pieces</button>
+      <button class="filter-btn" data-filter="new">New Collection</button>
+      <button class="filter-btn" data-filter="basics">Basic Apparel</button>
+      <button class="filter-btn" data-filter="tops">Tops</button>
+      <button class="filter-btn" data-filter="bottoms">Bottoms</button>
+      <button class="filter-btn" data-filter="accessories">Accessories</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+
+      <!-- 1 -->
+      <a href="#" class="product-card reveal" data-category="tops new">
+        <div class="product-card-img">
+          <div class="product-placeholder" style="background:#FFF9C4;">🧥</div>
+          <div class="product-tag" style="background:#FFD600; color:#111;">NEW</div>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Chaos Hoodie</div>
+          <div class="product-card-price">S / M / L / XL &nbsp;·&nbsp; <strong>$89</strong></div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a href="#" class="product-card reveal" data-category="tops basics">
+        <div class="product-card-img">
+          <div class="product-placeholder" style="background:#FFE0E0;">👕</div>
+          <div class="product-tag" style="background:#FF3D00; color:#fff;">HOT</div>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Born Weird Tee</div>
+          <div class="product-card-price">S / M / L / XL &nbsp;·&nbsp; <strong>$45</strong></div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a href="#" class="product-card reveal" data-category="bottoms new">
+        <div class="product-card-img">
+          <div class="product-placeholder" style="background:#E0FAFF;">👖</div>
+          <div class="product-tag" style="background:#00E5FF; color:#111;">DROP</div>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Doodle Pants</div>
+          <div class="product-card-price">S / M / L / XL &nbsp;·&nbsp; <strong>$75</strong></div>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a href="#" class="product-card reveal" data-category="tops new">
+        <div class="product-card-img">
+          <div class="product-placeholder" style="background:#E8FFE0;">🧥</div>
+          <div class="product-tag" style="background:#76FF03; color:#111;">LIMITED</div>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Splatter Jacket</div>
+          <div class="product-card-price">S / M / L / XL &nbsp;·&nbsp; <strong>$125</strong></div>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a href="#" class="product-card reveal" data-category="accessories new">
+        <div class="product-card-img">
+          <div class="product-placeholder" style="background:#F3E0FF;">🧢</div>
+          <div class="product-tag" style="background:#E040FB; color:#fff;">DROP</div>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Brain Bucket Hat</div>
+          <div class="product-card-price">One Size &nbsp;·&nbsp; <strong>$35</strong></div>
+        </div>
+      </a>
+
+      <!-- 6 -->
+      <a href="#" class="product-card reveal" data-category="tops basics">
+        <div class="product-card-img">
+          <div class="product-placeholder" style="background:#FFE8D6;">👕</div>
+          <div class="product-tag" style="background:#FF6D00; color:#fff;">NEW</div>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Weird Kid Crewneck</div>
+          <div class="product-card-price">S / M / L / XL &nbsp;·&nbsp; <strong>$65</strong></div>
+        </div>
+      </a>
+
+    </div><!-- /product-grid -->
+
+    <!-- Note for prototype -->
+    <div class="reveal" style="margin-top:4rem; padding:2rem; background:#fafafa; border:2px dashed #ddd; text-align:center;">
+      <p style="color:#999; font-size:0.85rem; font-family:'Space Grotesk',sans-serif; letter-spacing:0.05em;">
+        🖼️ <strong>PROTOTYPE MODE</strong> — Replace colored placeholders with your product images.<br>
+        Drop your images into <code>images/</code> and update <code>src</code> attributes.
+      </p>
+    </div>
+
+  </div><!-- /section -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">WEIRD KID</div>
+          <p class="footer-desc">International streetwear for the ones who never fit in. Born weird. Stay weird.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+            <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+            <a href="#" class="social-btn" aria-label="Twitter/X">🐦</a>
+            <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="collections.html">All Pieces</a></li>
+            <li><a href="collections.html?filter=tops">Tops</a></li>
+            <li><a href="collections.html?filter=bottoms">Bottoms</a></li>
+            <li><a href="collections.html?filter=accessories">Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Brand</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html">Values</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="contact.html#faq">Sizing Guide</a></li>
+            <li><a href="contact.html#faq">Shipping & Returns</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Weird Kid. All rights reserved.</span>
+        <span>Made with 🎨 for the different ones.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
