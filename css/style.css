@@ -994,3 +994,48 @@ a { color: inherit; }
   }
   .js .reveal:not(.visible) { opacity: 1; transform: none; }
 }
+
+/* ===== DARK HERO WITH SKULL ===== */
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.hero { background: #000; }
+.hero-skull { margin-bottom: 1.5rem; line-height: 0; }
+.hero-skull img {
+  display: block;
+  width: auto;
+  height: min(58vh, 560px);
+  max-width: 100%;
+  margin: 0 auto;
+  mix-blend-mode: lighten; /* black bg of the art melts into the dark hero */
+}
+.hero .hero-doodle-bg { opacity: .22; filter: blur(2px) invert(1); }
+.hero-eyebrow { color: #bbb; }
+.hero-eyebrow::before, .hero-eyebrow::after { background: #666; }
+.hero-subtitle { color: #bbb; margin-bottom: 2rem; }
+.hero .btn { background: #fff; color: #000; border-color: #fff; --btn-shadow: var(--yellow); }
+.hero .btn-outline { background: transparent; color: #fff; border-color: #fff; --btn-shadow: var(--cyan); }
+.hero :focus-visible { outline-color: var(--yellow); }
+.marquee-section { border-top-color: #333; }
+@media (max-width: 768px) { .hero-skull img { height: min(45vh, 420px); } }
+
+/* ===== DARK CONTACT PAGE (matches the footer) ===== */
+.page-dark { background: #111; color: #f2f2f2; }
+.page-dark .page-hero { background: #111; }
+.page-dark h1, .page-dark h2, .page-dark h3, .page-dark h4 { color: #fff; }
+.page-dark .page-hero-sub, .page-dark .contact-detail p { color: #9a9a9a; }
+.page-dark .section-label { color: #bbb; }
+.page-dark .form-group label { color: #ddd; }
+.page-dark .form-group input,
+.page-dark .form-group textarea,
+.page-dark .form-group select { background-color: #161616; color: #fff; border-color: #333; }
+.page-dark .form-group input::placeholder,
+.page-dark .form-group textarea::placeholder { color: #666; }
+.page-dark .form-group input:focus,
+.page-dark .form-group textarea:focus,
+.page-dark .form-group select:focus { border-color: var(--yellow); }
+.page-dark .form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23ccc' stroke-width='2'/%3E%3C/svg%3E");
+}
+.page-dark .contact-icon { border-color: #333; background: #161616; }
+.page-dark .btn { background: #fff; color: #000; border-color: #fff; --btn-shadow: var(--yellow); }
+.page-dark .footer { background: #0a0a0a; border-top: 1px solid #2a2a2a; }
+.page-dark :focus-visible { outline-color: var(--yellow); }
