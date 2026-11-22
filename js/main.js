@@ -222,4 +222,95 @@ document.addEventListener('DOMContentLoaded', () => {
     el.style.animationDelay = `${(i * 0.4) % 3}s`;
   });
 
+
+  /* ── Shop dropdown (hover handled in CSS; click/keyboard here) ── */
+  const hasMenu = document.querySelector('.has-menu');
+  if (hasMenu) {
+    const caret = hasMenu.querySelector('.nav-caret');
+    const setMega = (open) => { hasMenu.classList.toggle('open', open); caret.setAttribute('aria-expanded', String(open)); };
+    caret.addEventListener('click', (e) => { e.stopPropagation(); setMega(!hasMenu.classList.contains('open')); });
+    document.addEventListener('click', (e) => { if (!hasMenu.contains(e.target)) setMega(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMega(false); });
+  }
+
+  /* ── Mobile Shop accordion ── */
+  document.querySelectorAll('.mm-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.mm-group');
+      const open = !group.classList.contains('open');
+      group.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.querySelector('span').textContent = open ? '\u2212' : '+';
+    });
+  });
+
+  /* ── Account modal (demo only: nothing is sent anywhere yet) ── */
+  const overlay = document.getElementById('acct-overlay');
+  if (overlay) {
+    const form = overlay.querySelector('#acct-form');
+    const heading = overlay.querySelector('.acct-heading');
+    const nameField = overlay.querySelector('.acct-name');
+    const nameInput = overlay.querySelector('#acct-name');
+    const errorEl = overlay.querySelector('.acct-error');
+    const submitBtn = overlay.querySelector('.acct-submit');
+    const done = overlay.querySelector('.acct-done');
+    const doneMsg = overlay.querySelector('.acct-done-msg');
+    const tabsEl = overlay.querySelector('.acct-tabs');
+    const labelEls = document.querySelectorAll('.nav-account-label');
+    let mode = 'signin', lastFocus = null;
+    const store = {
+      get() { try { return localStorage.getItem('wk-user'); } catch (e) { return null; } },
+      set(v) { try { v ? localStorage.setItem('wk-user', v) : localStorage.removeItem('wk-user'); } catch (e) {} }
+    };
+    const setTab = (m) => {
+      mode = m;
+      overlay.querySelectorAll('.acct-tab').forEach(t => {
+        const on = t.dataset.tab === m; t.classList.toggle('active', on); t.setAttribute('aria-selected', String(on));
+      });
+      nameField.hidden = m !== 'signup';
+      heading.textContent = m === 'signup' ? 'Join the weirdos.' : 'Welcome back, weirdo.';
+      submitBtn.textContent = m === 'signup' ? 'Create account' : 'Sign in';
+      errorEl.hidden = true;
+    };
+    const refreshLabel = () => {
+      const u = store.get();
+      labelEls.forEach(l => { l.textContent = u ? 'Hi, ' + u.split(' ')[0] : 'Account'; });
+    };
+    const showDone = (name) => {
+      form.hidden = true; tabsEl.hidden = true; heading.textContent = 'You\u2019re in.';
+      doneMsg.textContent = 'Hey ' + name.split(' ')[0] + ' \u2726';
+      done.hidden = false;
+    };
+    const open = () => {
+      lastFocus = document.activeElement;
+      overlay.hidden = false; document.body.style.overflow = 'hidden';
+      const u = store.get();
+      if (u) { showDone(u); } else { form.hidden = false; tabsEl.hidden = false; done.hidden = true; setTab(mode); }
+      const first = overlay.querySelector('input:not([hidden]), .acct-continue');
+      setTimeout(() => (u ? overlay.querySelector('.acct-continue') : form.querySelector('input:not([type=hidden])')).focus(), 30);
+    };
+    const close = () => {
+      overlay.hidden = true; document.body.style.overflow = '';
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+    document.querySelectorAll('[data-account-open]').forEach(b => b.addEventListener('click', () => {
+      if (mobileMenu && mobileMenu.classList.contains('open')) hamburger.click();
+      open();
+    }));
+    overlay.querySelector('.acct-close').addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !overlay.hidden) close(); });
+    overlay.querySelectorAll('.acct-tab').forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = form.email.value.trim(), pass = form.password.value;
+      if (!/^\S+@\S+\.\S+$/.test(email)) { errorEl.textContent = 'Enter a valid email.'; errorEl.hidden = false; form.email.focus(); return; }
+      if (pass.length < 6) { errorEl.textContent = 'Password needs at least 6 characters.'; errorEl.hidden = false; form.password.focus(); return; }
+      const name = (mode === 'signup' && nameInput.value.trim()) || email.split('@')[0];
+      store.set(name); refreshLabel(); showDone(name); form.reset();
+    });
+    overlay.querySelector('.acct-continue').addEventListener('click', close);
+    overlay.querySelector('.acct-signout').addEventListener('click', () => { store.set(''); refreshLabel(); close(); });
+    refreshLabel();
+  }
 });

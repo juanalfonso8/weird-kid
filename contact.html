@@ -24,11 +24,33 @@
     <a href="index.html" class="navbar-logo">WEIRD KID</a>
     <ul class="navbar-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="collections.html">Collections</a></li>
+      <li class="has-menu">
+        <a href="collections.html">Shop</a><button type="button" class="nav-caret" aria-expanded="false" aria-controls="shop-mega" aria-label="Open shop menu">&#9662;</button>
+        <div class="mega-wrap"><div class="mega" id="shop-mega">
+          <div class="mega-col">
+            <p class="mega-title">Shop by drop</p>
+            <a href="collections.html?filter=new"><span class="mega-dot" style="background:var(--yellow)"></span>New Collection</a>
+            <a href="collections.html?filter=basics"><span class="mega-dot" style="background:var(--cyan)"></span>Basic Apparel</a>
+          </div>
+          <div class="mega-col">
+            <p class="mega-title">Shop by type</p>
+            <a href="collections.html?filter=tops">Tops</a>
+            <a href="collections.html?filter=bottoms">Bottoms</a>
+            <a href="collections.html?filter=accessories">Accessories</a>
+          </div>
+          <a class="mega-feature" href="collections.html">
+            <span>All Pieces</span><small>See everything we've got &rarr;</small>
+          </a>
+        </div></div>
+      </li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="navbar-right">
+      <button type="button" class="nav-account" data-account-open aria-haspopup="dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        <span class="nav-account-label">Account</span>
+      </button>
       <a class="nav-bag" href="collections.html" title="Shop" aria-label="Shop">🛍️</a>
       <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
@@ -37,9 +59,20 @@
   </nav>
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
-    <a href="collections.html">Collections</a>
+    <div class="mm-group">
+      <button type="button" class="mm-toggle" aria-expanded="false">Shop <span aria-hidden="true">+</span></button>
+      <div class="mm-sub">
+        <a href="collections.html">All Pieces</a>
+        <a href="collections.html?filter=new">New Collection</a>
+        <a href="collections.html?filter=basics">Basic Apparel</a>
+        <a href="collections.html?filter=tops">Tops</a>
+        <a href="collections.html?filter=bottoms">Bottoms</a>
+        <a href="collections.html?filter=accessories">Accessories</a>
+      </div>
+    </div>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <button type="button" class="mm-account" data-account-open>Sign in / Create account</button>
   </div>
 
   <!-- ===== PAGE HERO ===== -->
@@ -235,6 +268,31 @@
       </div>
     </div>
   </footer>
+
+  
+  <!-- ===== ACCOUNT MODAL ===== -->
+  <div class="acct-overlay" id="acct-overlay" hidden>
+    <div class="acct-modal" role="dialog" aria-modal="true" aria-labelledby="acct-title">
+      <button type="button" class="acct-close" aria-label="Close">&times;</button>
+      <div class="acct-tabs" role="tablist">
+        <button type="button" role="tab" class="acct-tab active" data-tab="signin" aria-selected="true">Sign in</button>
+        <button type="button" role="tab" class="acct-tab" data-tab="signup" aria-selected="false">Create account</button>
+      </div>
+      <h2 id="acct-title" class="acct-heading">Welcome back, weirdo.</h2>
+      <form class="acct-form" id="acct-form" novalidate>
+        <div class="acct-field acct-name" hidden><label for="acct-name">Name</label><input id="acct-name" name="name" autocomplete="name" placeholder="Alex Kim"></div>
+        <div class="acct-field"><label for="acct-email">Email</label><input id="acct-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required></div>
+        <div class="acct-field"><label for="acct-pass">Password</label><input id="acct-pass" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required></div>
+        <p class="acct-error" role="alert" hidden></p>
+        <button type="submit" class="btn acct-submit">Sign in</button>
+      </form>
+      <div class="acct-done" hidden>
+        <p class="acct-done-msg"></p>
+        <button type="button" class="btn acct-continue">Keep shopping</button>
+        <button type="button" class="acct-signout">Sign out</button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
