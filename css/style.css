@@ -1005,7 +1005,6 @@ a { color: inherit; }
   height: min(58vh, 560px);
   max-width: 100%;
   margin: 0 auto;
-  mix-blend-mode: lighten; /* black bg of the art melts into the dark hero */
 }
 .hero .hero-doodle-bg { opacity: .22; filter: blur(2px) invert(1); }
 .hero-eyebrow { color: #bbb; }
