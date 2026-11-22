@@ -995,9 +995,8 @@ a { color: inherit; }
   .js .reveal:not(.visible) { opacity: 1; transform: none; }
 }
 
-/* ===== DARK HERO WITH SKULL ===== */
+/* ===== SKULL HERO (white background) ===== */
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
-.hero { background: #000; }
 .hero-skull { margin-bottom: 1.5rem; line-height: 0; }
 .hero-skull img {
   display: block;
@@ -1006,14 +1005,6 @@ a { color: inherit; }
   max-width: 100%;
   margin: 0 auto;
 }
-.hero .hero-doodle-bg { opacity: .22; filter: blur(2px) invert(1); }
-.hero-eyebrow { color: #bbb; }
-.hero-eyebrow::before, .hero-eyebrow::after { background: #666; }
-.hero-subtitle { color: #bbb; margin-bottom: 2rem; }
-.hero .btn { background: #fff; color: #000; border-color: #fff; --btn-shadow: var(--yellow); }
-.hero .btn-outline { background: transparent; color: #fff; border-color: #fff; --btn-shadow: var(--cyan); }
-.hero :focus-visible { outline-color: var(--yellow); }
-.marquee-section { border-top-color: #333; }
 @media (max-width: 768px) { .hero-skull img { height: min(45vh, 420px); } }
 
 /* ===== DARK CONTACT PAGE (matches the footer) ===== */
